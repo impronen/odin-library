@@ -1,0 +1,59 @@
+
+
+body {
+    height: 100vh;
+}
+
+.heading {
+    display: flex;
+    background-color: beige;
+    justify-content: center;
+}
+
+.main-heading {
+
+}
+
+.main {
+    display: grid;
+    grid-template: 1fr 6fr /1fr 4fr;
+    height: 100wh;
+    margin: 0px;
+    padding: 0px;
+    border: 0cm;
+    background-color: rgb(255, 180, 95);
+  }
+
+
+  .sidebar-left {
+    grid-row: 1 / 7;
+    background-color: #69D2E7;
+    width: 20vw;
+    gap: 15%;
+  }
+
+  .menu {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 20px;
+  }
+
+  .menu-button {
+    margin: 10px;
+    padding: 10px;
+    width: 80%;
+  }
+
+  .book-cards {
+    display: flex;
+    justify-content: center;
+    grid-row: 2 / 3;
+    grid-column: 2 / 3;
+    padding: 5rem;
+  }
+
+  .book-table {
+    border: solid 1px #69D2E7;
+
+  }
