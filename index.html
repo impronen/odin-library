@@ -16,9 +16,17 @@
 </header>
 
 <div class="main">
-    <div class="sidebar-left">
+    <div class="menubar">
+        <form action="example.com/path" method="post" class="newbook">
+            <label for="Book">Book</label>
+            <input type="text" name="Book" id="Book" placeholder="Book name">
+            <label for="Author">Author</label>
+            <input type="text" name="Author" id="Author" placeholder="Author name">
+            <label for="Genre">Genre</label>
+            <input type="text" name="Genre" id="Genre" placeholder="Genre">
+        </form>
         <div class="menu">
-       <button class="menu-button" id="new-book">New Book</button>
+       <button class="menu-button" id="new-book">Add to library</button>
        <button class="menu-button" id="remove-book">Remove Book</button>
     </div>
     </div>
