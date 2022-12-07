@@ -41,6 +41,15 @@ addBookBtn.addEventListener('click', (event) => {
 })
 
 
+//Pseudocode for creating a book card
+
+/* 
+INSIDE addBookToLibrary()
+CREATE new HTML elements for the card, inside book-cards div
+Connect this element to the object created (use objects array index)
+Populate div's with values from pairs
+*/
+
 //Library looper 
 
 myLibrary.forEach(myLibrary => {
