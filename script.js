@@ -48,8 +48,3 @@ myLibrary.forEach(myLibrary => {
         console.log(`${key}: ${myLibrary[key]}`)
     }
 })
-
-
-
-/* let TheHobbit = new book ('JRR Tolkien', '256','Not read');
-let LOTR = new book ('JRR Tolkien', '1056','Not read'); */
