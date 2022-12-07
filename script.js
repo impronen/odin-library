@@ -5,22 +5,24 @@ let myLibrary = [];
 let newBookName = document.querySelector("#Book");
 let newAuthor = document.querySelector("#Author");
 let newGenre = document.querySelector("#Genre");
-
+let newhaveRead = false;
 
 const addBookBtn = document.querySelector("#new-book");
+const readCB = document.querySelector("#haveRead");
+
+//Switches the value of whether book has been read
+readCB.addEventListener('click', event => {
+    newhaveRead = true
+})
 
 
 //Constructor function
 
-function book(author, name, genre) {
+function book(author, name, genre, read) {
     this.author = author
     this.name = name
-    this.genre = genre
-
-/*     this.info = function() {
-        return (`${author}, ${pages}, ${haveRead}`)
-    } */
-    
+    this.genre = genre  
+    this.read = read
 }
 
 //Subfunction to push a new book to array
@@ -33,10 +35,11 @@ addBookBtn.addEventListener('click', (event) => {
     console.log(`New book is ${newBookName.value}`)
     console.log(`New author is ${newAuthor.value}`)
     console.log(`The genre is ${newGenre.value}`);
-
-   let newBook = new book (`${newAuthor.value}`, `${newBookName.value}`, `${newGenre.value}`);
+    console.log(newhaveRead.value)
+   let newBook = new book (`${newAuthor.value}`, `${newBookName.value}`, `${newGenre.value}`, `${newhaveRead}`);
    addBookToLibrary(newBook)
 })
+
 
 //Library looper 
 
@@ -48,5 +51,5 @@ myLibrary.forEach(myLibrary => {
 
 
 
-let TheHobbit = new book ('JRR Tolkien', '256','Not read');
-let LOTR = new book ('JRR Tolkien', '1056','Not read');
+/* let TheHobbit = new book ('JRR Tolkien', '256','Not read');
+let LOTR = new book ('JRR Tolkien', '1056','Not read'); */
