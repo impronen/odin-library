@@ -66,6 +66,12 @@ label {
     padding: 5rem;
   }
 
+  .book-card {
+    display: flex;
+    flex-direction: row;
+    background-color: #69D2E7;
+  }
+
   .book-table {
     border: solid 1px #69D2E7;
 

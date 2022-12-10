@@ -50,6 +50,27 @@ Connect this element to the object created (use objects array index)
 Populate div's with values from pairs
 */
 
+
+function createBookCard () {
+    const bookTable = document.querySelector('.book-cards')
+    const newCard = document.createElement('div');
+    newCard.classList.add('book-card');
+    /* newCard.textContent = "Just some text"; */
+    bookTable.appendChild(newCard);
+
+    const cardLeft = document.createElement('div');
+    cardLeft.classList.add('book-card-left');
+    cardLeft.textContent = "Text on left side";
+    newCard.appendChild(cardLeft);
+
+    const cardRight = document.createElement('div');
+    cardRight.classList.add('book-card-right');
+    cardRight.textContent = "Text on right side";
+    newCard.appendChild(cardRight);
+
+}
+
+
 //Library looper 
 
 myLibrary.forEach(myLibrary => {
