@@ -6,6 +6,7 @@ let newBookName = document.querySelector("#Book");
 let newAuthor = document.querySelector("#Author");
 let newGenre = document.querySelector("#Genre");
 let newhaveRead = false;
+let newUuID = crypto.randomUUID();
 
 const addBookBtn = document.querySelector("#new-book");
 const readCB = document.querySelector("#haveRead");
@@ -18,12 +19,26 @@ readCB.addEventListener('click', event => {
 
 //Constructor function
 
-function book(author, name, genre, read) {
+function book(author, name, genre, read, uuid) {
     this.author = author
     this.name = name
     this.genre = genre  
     this.read = read
+    this.uuid = uuid
 }
+
+//Add book from form to the array
+addBookBtn.addEventListener('click', (event) => {
+    console.log(`New book is ${newBookName.value}`)
+    console.log(`New author is ${newAuthor.value}`)
+    console.log(`The genre is ${newGenre.value}`);
+    console.log(newhaveRead)
+   let newBook = new book (`${newAuthor.value}`, `${newBookName.value}`, `${newGenre.value}`, `${newhaveRead}`, `${newUuID}`);
+   addBookToLibrary(newBook)
+   createBookCard ()
+   inputClear()
+})
+
 
 //Clear input values
 
@@ -37,19 +52,6 @@ function inputClear() {
 function addBookToLibrary(newBook) {
     myLibrary.push(newBook);
 }
-
-//Add book from form to the array
-addBookBtn.addEventListener('click', (event) => {
-    console.log(`New book is ${newBookName.value}`)
-    console.log(`New author is ${newAuthor.value}`)
-    console.log(`The genre is ${newGenre.value}`);
-    console.log(newhaveRead)
-   let newBook = new book (`${newAuthor.value}`, `${newBookName.value}`, `${newGenre.value}`, `${newhaveRead}`);
-   addBookToLibrary(newBook)
-   createBookCard ()
-   inputClear()
-})
-
 
 //Pseudocode for creating a book card
 
