@@ -25,6 +25,14 @@ function book(author, name, genre, read) {
     this.read = read
 }
 
+//Clear input values
+
+function inputClear() {
+    document.querySelector("#Book").value = '';
+    document.querySelector("#Author").value = '';
+    document.querySelector("#Genre").value = '';
+}
+
 //Subfunction to push a new book to array
 function addBookToLibrary(newBook) {
     myLibrary.push(newBook);
@@ -35,9 +43,11 @@ addBookBtn.addEventListener('click', (event) => {
     console.log(`New book is ${newBookName.value}`)
     console.log(`New author is ${newAuthor.value}`)
     console.log(`The genre is ${newGenre.value}`);
-    console.log(newhaveRead.value)
+    console.log(newhaveRead)
    let newBook = new book (`${newAuthor.value}`, `${newBookName.value}`, `${newGenre.value}`, `${newhaveRead}`);
    addBookToLibrary(newBook)
+   createBookCard ()
+   inputClear()
 })
 
 
@@ -60,15 +70,17 @@ function createBookCard () {
 
     const cardLeft = document.createElement('div');
     cardLeft.classList.add('book-card-left');
-    cardLeft.textContent = "Text on left side";
+    cardLeft.textContent = `Author: ${newAuthor.value}`;
     newCard.appendChild(cardLeft);
 
     const cardRight = document.createElement('div');
     cardRight.classList.add('book-card-right');
-    cardRight.textContent = "Text on right side";
+    cardRight.textContent = `${newBookName.value}`;
     newCard.appendChild(cardRight);
 
 }
+
+
 
 
 //Library looper 
