@@ -46,6 +46,8 @@ function inputClear() {
     document.querySelector("#Book").value = '';
     document.querySelector("#Author").value = '';
     document.querySelector("#Genre").value = '';
+    newhaveRead = !newhaveRead;
+    document.querySelector("#haveRead").checked = false;
 }
 
 //Subfunction to push a new book to array
@@ -55,12 +57,7 @@ function addBookToLibrary(newBook) {
 
 //Pseudocode for creating a book card
 
-/* 
-INSIDE addBookToLibrary()
-CREATE new HTML elements for the card, inside book-cards div
-Connect this element to the object created (use objects array index)
-Populate div's with values from pairs
-*/
+
 
 
 function createBookCard () {
@@ -96,15 +93,29 @@ function createBookCard () {
 
     const btnHaveread = document.createElement('BUTTON');
     btnHaveread.classList.add('btnHaveread');
-    btnHaveread.innerHTML = "Click Me";
+    console.log(newhaveRead)
+    if (newhaveRead === false) {
+        console.log("Poop")
+        btnHaveread.classList.add("btnNotread");
+        btnHaveread.innerHTML = "Not read"
+    } else if (newhaveRead === true) {
+        btnHaveread.classList.add("btnHaveread");
+        btnHaveread.innerHTML = "Read"
+    }
     cardRight.appendChild(btnHaveread);
 
     const btnRemoveBook= document.createElement('BUTTON');
     btnRemoveBook.classList.add('btnRemove');
     btnRemoveBook.innerHTML = "Remove book";
     cardRight.appendChild(btnRemoveBook);
-
 }
+
+/* 
+Next up - build functions for buttons on cards
+Link them with id from array objects and write / rewrite object and DOM
+Linking should be it's own function
+*/
+
 
 /* `${newUuID}`, `${newAuthor.value}`, `${newBookName.value}`, `${newGenre.value}`, `${newhaveRead}` */
 
