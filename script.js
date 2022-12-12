@@ -8,23 +8,23 @@ let newGenre = document.querySelector("#Genre");
 let newhaveRead = false;
 let newUuID = crypto.randomUUID();
 
-const addBookBtn = document.querySelector("#new-book");
+const addBookBtn = document.querySelector("#new-book-button");
 const readCB = document.querySelector("#haveRead");
 
 //Switches the value of whether book has been read
 readCB.addEventListener('click', event => {
-    newhaveRead = true
+    newhaveRead = !newhaveRead;
 })
 
 
 //Constructor function
 
-function book(author, name, genre, read, uuid) {
+function book(uuid, author, name, genre, read) {
+    this.uuid = uuid
     this.author = author
     this.name = name
     this.genre = genre  
     this.read = read
-    this.uuid = uuid
 }
 
 //Add book from form to the array
@@ -33,7 +33,7 @@ addBookBtn.addEventListener('click', (event) => {
     console.log(`New author is ${newAuthor.value}`)
     console.log(`The genre is ${newGenre.value}`);
     console.log(newhaveRead)
-   let newBook = new book (`${newAuthor.value}`, `${newBookName.value}`, `${newGenre.value}`, `${newhaveRead}`, `${newUuID}`);
+   let newBook = new book (`${newUuID}`, `${newAuthor.value}`, `${newBookName.value}`, `${newGenre.value}`, `${newhaveRead}`);
    addBookToLibrary(newBook)
    createBookCard ()
    inputClear()
@@ -67,23 +67,46 @@ function createBookCard () {
     const bookTable = document.querySelector('.book-cards')
     const newCard = document.createElement('div');
     newCard.classList.add('book-card');
-    /* newCard.textContent = "Just some text"; */
+    newCard.setAttribute("id", `${newUuID}`); // unique id to connect to array
     bookTable.appendChild(newCard);
 
     const cardLeft = document.createElement('div');
     cardLeft.classList.add('book-card-left');
-    cardLeft.textContent = `Author: ${newAuthor.value}`;
     newCard.appendChild(cardLeft);
+
+    const cardAuthor = document.createElement('div');
+    cardAuthor.innerHTML = newAuthor.value;
+    cardAuthor.classList.add('authorname')
+    cardLeft.appendChild(cardAuthor);
+
+    const cardName = document.createElement('h3');
+    cardName.innerHTML = newBookName.value;
+    cardName.classList.add('bookname')
+    cardLeft.appendChild(cardName);
+
+    const cardGenre = document.createElement('div');
+    cardGenre.innerHTML = newGenre.value;
+    cardGenre.classList.add('genre');
+    cardLeft.appendChild(cardGenre);
+
 
     const cardRight = document.createElement('div');
     cardRight.classList.add('book-card-right');
-    cardRight.textContent = `${newBookName.value}`;
     newCard.appendChild(cardRight);
+
+    const btnHaveread = document.createElement('BUTTON');
+    btnHaveread.classList.add('btnHaveread');
+    btnHaveread.innerHTML = "Click Me";
+    cardRight.appendChild(btnHaveread);
+
+    const btnRemoveBook= document.createElement('BUTTON');
+    btnRemoveBook.classList.add('btnRemove');
+    btnRemoveBook.innerHTML = "Remove book";
+    cardRight.appendChild(btnRemoveBook);
 
 }
 
-
-
+/* `${newUuID}`, `${newAuthor.value}`, `${newBookName.value}`, `${newGenre.value}`, `${newhaveRead}` */
 
 //Library looper 
 
