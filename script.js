@@ -11,6 +11,7 @@ let newUuID = crypto.randomUUID();
 const addBookBtn = document.querySelector("#new-book-button");
 const readCB = document.querySelector("#haveRead");
 
+
 //Switches the value of whether book has been read
 readCB.addEventListener('click', event => {
     newhaveRead = !newhaveRead;
@@ -29,10 +30,6 @@ function book(uuid, author, name, genre, read) {
 
 //Add book from form to the array
 addBookBtn.addEventListener('click', (event) => {
-    console.log(`New book is ${newBookName.value}`)
-    console.log(`New author is ${newAuthor.value}`)
-    console.log(`The genre is ${newGenre.value}`);
-    console.log(newhaveRead)
    let newBook = new book (`${newUuID}`, `${newAuthor.value}`, `${newBookName.value}`, `${newGenre.value}`, `${newhaveRead}`);
    addBookToLibrary(newBook)
    createBookCard ()
@@ -55,10 +52,7 @@ function addBookToLibrary(newBook) {
     myLibrary.push(newBook);
 }
 
-//Pseudocode for creating a book card
-
-
-
+//Creating book card in DOM
 
 function createBookCard () {
     const bookTable = document.querySelector('.book-cards')
@@ -95,7 +89,6 @@ function createBookCard () {
     btnHaveread.classList.add('btnHaveread');
     console.log(newhaveRead)
     if (newhaveRead === false) {
-        console.log("Poop")
         btnHaveread.classList.add("btnNotread");
         btnHaveread.innerHTML = "Not read"
     } else if (newhaveRead === true) {
@@ -110,12 +103,38 @@ function createBookCard () {
     cardRight.appendChild(btnRemoveBook);
 }
 
+
+
+
 /* 
 Next up - build functions for buttons on cards
 Link them with id from array objects and write / rewrite object and DOM
 Linking should be it's own function
 */
 
+//Connector function?
+/* function connectToObject() {
+    const 
+    return myLibrary.newUuID === 
+} */
+
+//Event listener for remove button
+document.body.addEventListener('click', function(event){
+    if(event.target.classList == 'btnRemove'){
+      console.log("Now?")
+    };
+}); 
+
+//Delete element function
+/* function elementRemover() {
+    if(target.id){
+
+    }
+
+Build this so that the function traverses up the DOM tree to
+book-card element and then deletes it + children
+
+} */
 
 /* `${newUuID}`, `${newAuthor.value}`, `${newBookName.value}`, `${newGenre.value}`, `${newhaveRead}` */
 
