@@ -135,7 +135,7 @@ footer {
 
   }
 
-  .btnHaveread, .btnRemove {
+  .btnHaveread, .btnNotread, .btnRemove {
     border-radius: 10px;
     padding: 10px;
     margin: 5px;

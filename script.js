@@ -14,7 +14,12 @@ const readCB = document.querySelector("#haveRead");
 
 //Switches the value of whether book has been read
 readCB.addEventListener('click', event => {
-    newhaveRead = !newhaveRead;
+    if (newhaveRead === true) {
+        newhaveRead = false;
+    } else {
+        newhaveRead = true
+    }
+    
 })
 
 
@@ -43,7 +48,7 @@ function inputClear() {
     document.querySelector("#Book").value = '';
     document.querySelector("#Author").value = '';
     document.querySelector("#Genre").value = '';
-    newhaveRead = !newhaveRead;
+    newhaveRead = false;
     document.querySelector("#haveRead").checked = false;
 }
 
@@ -86,7 +91,8 @@ function createBookCard () {
     newCard.appendChild(cardRight);
 
     const btnHaveread = document.createElement('BUTTON');
-    btnHaveread.classList.add('btnHaveread');
+    /* btnHaveread.classList.add('btnHaveread'); */
+    btnHaveread.setAttribute("id", `${newUuID}`);
     console.log(newhaveRead)
     if (newhaveRead === false) {
         btnHaveread.classList.add("btnNotread");
@@ -122,8 +128,18 @@ Linking should be it's own function
 document.body.addEventListener('click', function(event){
     if(event.target.classList == 'btnRemove'){
       console.log("Now?")
-    };
+    } ;
 }); 
+
+//Event listener for have read button (works)
+document.body.addEventListener('click', function(event){
+    if(event.target.classList == 'btnHaveread'){
+      console.log("Again?")
+    } else if (event.target.classList == 'btnNotread'){
+        console.log("Yet?")
+      }
+});
+
 
 //Delete element function
 /* function elementRemover() {
