@@ -6,25 +6,14 @@ let newBookName = document.querySelector("#Book");
 let newAuthor = document.querySelector("#Author");
 let newGenre = document.querySelector("#Genre");
 let newhaveRead = false;
-let newUuID = crypto.randomUUID();
+let newUuID = "";
+let idSwap = "";
 
 const addBookBtn = document.querySelector("#new-book-button");
 const readCB = document.querySelector("#haveRead");
 
 
-//Switches the value of whether book has been read
-readCB.addEventListener('click', event => {
-    if (newhaveRead === true) {
-        newhaveRead = false;
-    } else {
-        newhaveRead = true
-    }
-    
-})
-
-
 //Constructor function
-
 function book(uuid, author, name, genre, read) {
     this.uuid = uuid
     this.author = author
@@ -35,6 +24,7 @@ function book(uuid, author, name, genre, read) {
 
 //Add book from form to the array
 addBookBtn.addEventListener('click', (event) => {
+   newUuID = crypto.randomUUID();
    let newBook = new book (`${newUuID}`, `${newAuthor.value}`, `${newBookName.value}`, `${newGenre.value}`, `${newhaveRead}`);
    addBookToLibrary(newBook)
    createBookCard ()
@@ -91,7 +81,6 @@ function createBookCard () {
     newCard.appendChild(cardRight);
 
     const btnHaveread = document.createElement('BUTTON');
-    /* btnHaveread.classList.add('btnHaveread'); */
     btnHaveread.setAttribute("id", `${newUuID}`);
     console.log(newhaveRead)
     if (newhaveRead === false) {
@@ -120,9 +109,11 @@ Linking should be it's own function
 
 //Connector function?
 /* function connectToObject() {
-    const 
+    let e =  
     return myLibrary.newUuID === 
 } */
+
+
 
 //Event listener for remove button
 document.body.addEventListener('click', function(event){
@@ -131,15 +122,28 @@ document.body.addEventListener('click', function(event){
     } ;
 }); 
 
-//Event listener for have read button (works)
+//Event listener for have read button
 document.body.addEventListener('click', function(event){
+    let foo = event.target.id;
+    idSwap = foo;
+    foo = "";
     if(event.target.classList == 'btnHaveread'){
       console.log("Again?")
+      console.log(idSwap);
     } else if (event.target.classList == 'btnNotread'){
         console.log("Yet?")
-      }
+    }
+    idSwap = "";
 });
 
+//Switches the value of whether book has been read
+readCB.addEventListener('click', event => {
+    if (newhaveRead === true) {
+        newhaveRead = false;
+    } else {
+        newhaveRead = true
+    }
+})
 
 //Delete element function
 /* function elementRemover() {
