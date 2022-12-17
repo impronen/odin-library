@@ -95,36 +95,19 @@ function createBookCard () {
     const btnRemoveBook= document.createElement('BUTTON');
     btnRemoveBook.classList.add('btnRemove');
     btnRemoveBook.innerHTML = "Remove book";
+    btnRemoveBook.setAttribute("id", `${newUuID}`);
     cardRight.appendChild(btnRemoveBook);
 }
 
 
-
-
-/* 
-Next up - build functions for buttons on cards
-Link them with id from array objects and write / rewrite object and DOM
-Linking should be it's own function
-*/
-
-
-
-
-//Event listener for remove button
-document.body.addEventListener('click', function(event){
-    if(event.target.classList == 'btnRemove'){
-      console.log("Now?")
-    } ;
-}); 
-
-//Event listener for have read button
+//Event listener for card buttons
 document.body.addEventListener('click', function(event){
     let foo = event.target.id;
     idSwap = foo;
     foo = "";
 
     let targetID = myLibrary.find(item => item.uuid === idSwap);
-    console.log(targetID);
+    
 
     if(event.target.classList == 'btnHaveread'){
       event.target.classList.remove('btnHaveread')
@@ -135,36 +118,21 @@ document.body.addEventListener('click', function(event){
         event.target.classList.remove('btnNotread')
         event.target.classList.add('btnHaveread')
         targetID.read = true;
+    } else if (event.target.classList == 'btnRemove') {
+        let dude = event.target.parentNode;
+        let dudesMom = dude.parentNode;
+        dudesMom.remove();
+        myLibrary.splice(targetID, 1)
     }
     idSwap = "";
 });
 
-//Switches the value of whether book has been read
+
+//Switches the value of whether book has been read (radio button)
 readCB.addEventListener('click', event => {
     if (newhaveRead === true) {
         newhaveRead = false;
     } else {
         newhaveRead = true
-    }
-})
-
-//Delete element function
-/* function elementRemover() {
-    if(target.id){
-
-    }
-
-Build this so that the function traverses up the DOM tree to
-book-card element and then deletes it + children
-
-} */
-
-/* `${newUuID}`, `${newAuthor.value}`, `${newBookName.value}`, `${newGenre.value}`, `${newhaveRead}` */
-
-//Library looper 
-
-myLibrary.forEach(myLibrary => {
-    for (let key in myLibrary) {
-        console.log(`${key}: ${myLibrary[key]}`)
     }
 })
