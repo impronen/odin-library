@@ -107,11 +107,6 @@ Link them with id from array objects and write / rewrite object and DOM
 Linking should be it's own function
 */
 
-//Connector function?
-/* function connectToObject() {
-    let e =  
-    return myLibrary.newUuID === 
-} */
 
 
 
@@ -127,11 +122,19 @@ document.body.addEventListener('click', function(event){
     let foo = event.target.id;
     idSwap = foo;
     foo = "";
+
+    let targetID = myLibrary.find(item => item.uuid === idSwap);
+    console.log(targetID);
+
     if(event.target.classList == 'btnHaveread'){
-      console.log("Again?")
-      console.log(idSwap);
+      event.target.classList.remove('btnHaveread')
+      event.target.classList.add('btnNotread')
+      targetID.read = false;
+      
     } else if (event.target.classList == 'btnNotread'){
-        console.log("Yet?")
+        event.target.classList.remove('btnNotread')
+        event.target.classList.add('btnHaveread')
+        targetID.read = true;
     }
     idSwap = "";
 });
