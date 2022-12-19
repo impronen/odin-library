@@ -71,7 +71,7 @@ function createBookCard () {
     cardAuthor.classList.add('authorname')
     cardLeft.appendChild(cardAuthor);
 
-    const cardName = document.createElement('h3');
+    const cardName = document.createElement('h4');
     cardName.innerHTML = newBookName.value;
     cardName.classList.add('bookname')
     cardLeft.appendChild(cardName);
