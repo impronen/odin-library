@@ -12,6 +12,12 @@ let idSwap = "";
 const addBookBtn = document.querySelector("#new-book-button");
 const readCB = document.querySelector("#haveRead");
 
+let theHobbit = new book("53feeb9f-b87c-43b4-b54d-51441e01f4f3", "J.R.R. Tolkien", "The Hobbit", "Fantasy", true)
+addBookToLibrary(theHobbit)
+
+let bloodMeridian = new book("cc2e6e4c-6120-45b2-bb39-e44c6fdaf162", "Cormac McCarthy", "Blood Meridian or the Evening Redness in the West ", "Epic", true)
+addBookToLibrary(bloodMeridian)
+
 
 //Constructor function
 function book(uuid, author, name, genre, read) {
