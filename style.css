@@ -44,7 +44,7 @@ footer {
   align-items: center;
   text-align: center;
   font-size: small;
-  height: 15vh;
+  height: 5vh;
   background-color: #774F38;
   color: #F1D4AF;
 }
@@ -65,7 +65,7 @@ footer {
 .main {
     display: grid;
     grid-template: 1fr 6fr / 1fr 4fr;
-    height: 80vh;
+    height: 90vh;
     margin: 0px;
     padding: 0px;
     border: 0cm;
@@ -180,7 +180,7 @@ footer {
     box-shadow: rgba(0, 0, 0, 0.12) 0px 1px 3px, rgba(0, 0, 0, 0.24) 0px 1px 2px;
     margin: 10px;
     padding: 10px;
-    background-color: red;
+    background-color: rgb(158, 71, 71);
   }
 
   .btnRemove {

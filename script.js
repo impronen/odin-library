@@ -119,11 +119,14 @@ document.body.addEventListener('click', function(event){
       event.target.classList.remove('btnHaveread')
       event.target.classList.add('btnNotread')
       targetID.read = false;
+      event.target.innerHTML = "Not read"
       
     } else if (event.target.classList == 'btnNotread'){
         event.target.classList.remove('btnNotread')
         event.target.classList.add('btnHaveread')
         targetID.read = true;
+        event.target.innerHTML = "Read"
+        
     } else if (event.target.classList == 'btnRemove') {
         let dude = event.target.parentNode;
         let dudesMom = dude.parentNode;
