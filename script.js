@@ -158,3 +158,22 @@ readCB.addEventListener('click', event => {
         newhaveRead = true
     }
 })
+
+
+/* Possibility for improved function to generate book cards
+const printCard = (book) => `
+    <div>
+        <div class="book-card-left">
+            <div class="authorname">${book.author}</div>
+            <h4 class="bookname">${book.name}</h4>
+            <div class="genre">${book.genre}</div>
+        </div>
+    </div>
+`
+printCard({
+    author: 'Jeppe',
+    name: 'Testi nimi',
+    genre: 'Höpöhöpö'
+})
+
+*/
