@@ -1,54 +1,105 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="style.css">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="style.css" />
     <title>Library</title>
-</head>
-<body>
+  </head>
+  <body>
+    <header>
+      <div class="heading">
+        <h1 class="main-heading">Books n stuff</h1>
+      </div>
+    </header>
 
-<header>
-<div class="heading">
-    <h1 class="main-heading">Books n stuff</h1>
-</div>
-</header>
-
-<div class="main">
-    <div class="menubar">
+    <div class="main">
+      <div class="menubar">
         <!-- Add new books -->
         <form action="example.com/path" method="post" class="newbook">
-            <label for="Book">Book</label>
-            <input type="text" name="Book" id="Book" placeholder="Book name">
-            <label for="Author">Author</label>
-            <input type="text" name="Author" id="Author" placeholder="Author name">
-            <label for="Genre">Genre</label>
-            <input type="text" name="Genre" id="Genre" placeholder="Genre">
-            <input type="checkbox" id="haveRead" name="haveRead">
-            <label for="checkbox">Have you read it?</label>
+          <label for="Book">Book</label>
+          <input
+            type="text"
+            name="Book"
+            id="Book"
+            placeholder="Book name"
+            maxlength="25"
+          />
+          <label for="Author">Author</label>
+          <input
+            type="text"
+            name="Author"
+            id="Author"
+            placeholder="Author name"
+            maxlength="20"
+          />
+          <label for="Genre">Genre</label>
+          <input type="text" name="Genre" id="Genre" placeholder="Genre" />
+          <input type="checkbox" id="haveRead" name="haveRead" />
+          <label for="checkbox">Have you read it?</label>
         </form>
         <!-- Buttons -->
         <div class="menu">
-       <button class="menu-button" id="new-book-button">Add book</button>
-       <!-- <button class="menu-button" id="remove-book">Remove Book</button> -->
+          <button class="menu-button" id="new-book-button">Add book</button>
+          <!-- <button class="menu-button" id="remove-book">Remove Book</button> -->
+        </div>
+      </div>
+
+      <!-- Main container for added books -->
+      <div class="book-cards">
+        <div class="book-card" id="cc2e6e4c-6120-45b2-bb39-e44c6fdaf162">
+          <div class="book-card-left">
+            <div class="authorname">Cormac McCarthy</div>
+            <h4 class="bookname">
+              Blood Meridian or the Evening Redness in the West
+            </h4>
+            <div class="genre">Epic</div>
+          </div>
+          <div class="book-card-right">
+            <button
+              id="cc2e6e4c-6120-45b2-bb39-e44c6fdaf162"
+              class="btnHaveread"
+            >
+              Read</button
+            ><button
+              class="btnRemove"
+              id="cc2e6e4c-6120-45b2-bb39-e44c6fdaf162"
+            >
+              Remove book
+            </button>
+          </div>
+        </div>
+        <div class="book-card" id="53feeb9f-b87c-43b4-b54d-51441e01f4f3">
+          <div class="book-card-left">
+            <div class="authorname">J.R.R. Tolkien</div>
+            <h4 class="bookname">The Hobbit</h4>
+            <div class="genre">Fantasy</div>
+          </div>
+          <div class="book-card-right">
+            <button
+              id="53feeb9f-b87c-43b4-b54d-51441e01f4f3"
+              class="btnHaveread"
+            >
+              Read</button
+            ><button
+              class="btnRemove"
+              id="53feeb9f-b87c-43b4-b54d-51441e01f4f3"
+            >
+              Remove book
+            </button>
+          </div>
+        </div>
+      </div>
     </div>
-    </div>
 
-    <!-- Main container for added books -->
-    <div class="book-cards">
-        <div class="book-card" id="cc2e6e4c-6120-45b2-bb39-e44c6fdaf162"><div class="book-card-left"><div class="authorname">Cormac McCarthy</div><h4 class="bookname">Blood Meridian or the Evening Redness in the West </h4><div class="genre">Epic</div></div><div class="book-card-right"><button id="cc2e6e4c-6120-45b2-bb39-e44c6fdaf162" class="btnHaveread">Read</button><button class="btnRemove" id="cc2e6e4c-6120-45b2-bb39-e44c6fdaf162">Remove book</button></div></div>
-        <div class="book-card" id="53feeb9f-b87c-43b4-b54d-51441e01f4f3"><div class="book-card-left"><div class="authorname">J.R.R. Tolkien</div><h4 class="bookname">The Hobbit</h4><div class="genre">Fantasy</div></div><div class="book-card-right"><button id="53feeb9f-b87c-43b4-b54d-51441e01f4f3" class="btnHaveread">Read</button><button class="btnRemove" id="53feeb9f-b87c-43b4-b54d-51441e01f4f3">Remove book</button></div></div>
-    </div>
+    <footer>
+      <span
+        >Copyright © The Odin Project - 2022 <br />
+        Created by Antero Tienaho</span
+      >
+    </footer>
 
-</div>
-
-<footer>
-    <span>Copyright © The Odin Project - 2022 <br> Created by Antero Tienaho</span>
-</footer>
-
-
-
-<script src="script.js"></script>
-</body>
+    <script src="script.js"></script>
+  </body>
 </html>
